@@ -26,6 +26,7 @@ PRODUCT_PACKAGES += \
     DocumentsUI \
     DownloadProviderUi \
     ExternalStorageProvider \
+    FileManager \
     KeyChain \
     PicoTts \
     PacProcessor \
