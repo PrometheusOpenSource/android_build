@@ -494,7 +494,7 @@ function breakfast()
             lunch $target
         else
             # This is probably just the omni model name
-            lunch omni_$target-userdebug
+            lunch anime_$target-userdebug
         fi
     fi
     return $?
