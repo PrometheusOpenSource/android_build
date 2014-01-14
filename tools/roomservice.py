@@ -294,5 +294,5 @@ if __name__ == '__main__':
         deps_only = False
 
     if not deps_only:
-    fetch_device(device)
+        fetch_device(device)
     fetch_dependencies(device)
