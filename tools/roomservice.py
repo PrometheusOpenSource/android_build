@@ -1,13 +1,12 @@
 #!/usr/bin/env python
 # Copyright (C) 2012-2013, The CyanogenMod Project
 # Copyright (C) 2014, The AnimeROM Project
-# if roomservice not work maybe need use this
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-# http://www.apache.org/licenses/LICENSE-2.0
+#      http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -93,10 +92,10 @@ def exists_in_tree(lm, repository):
 
 # in-place prettyprint formatter
 def indent(elem, level=0):
-    i = "\n" + level*" "
+    i = "\n" + level*"  "
     if len(elem):
         if not elem.text or not elem.text.strip():
-            elem.text = i + " "
+            elem.text = i + "  "
         if not elem.tail or not elem.tail.strip():
             elem.tail = i
         for elem in elem:
