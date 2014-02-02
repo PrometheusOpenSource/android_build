@@ -20,13 +20,13 @@
 # core_minimal.mk instead.
 
 PRODUCT_PACKAGES += \
+    AnimeManager \
     BasicDreams \
     Browser \
     Contacts \
     DocumentsUI \
     DownloadProviderUi \
     ExternalStorageProvider \
-    FileManager \
     KeyChain \
     PicoTts \
     PacProcessor \
