@@ -21,6 +21,7 @@
 
 PRODUCT_PACKAGES += \
     AnimeManager \
+    AnimePapers \
     BasicDreams \
     Browser \
     Contacts \
