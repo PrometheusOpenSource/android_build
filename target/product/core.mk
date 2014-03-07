@@ -20,8 +20,6 @@
 # core_minimal.mk instead.
 
 PRODUCT_PACKAGES += \
-    AnimeManager \
-    AnimePapers \
     BasicDreams \
     Browser \
     Contacts \
