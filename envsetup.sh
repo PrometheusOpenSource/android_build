@@ -59,8 +59,8 @@ function check_product()
         return
     fi
 
-    if (echo -n $1 | grep -q -e "^anime_") ; then
-       CUSTOM_BUILD=$(echo -n $1 | sed -e 's/^anime_//g')
+    if (echo -n $1 | grep -q -e "^prome_") ; then
+       CUSTOM_BUILD=$(echo -n $1 | sed -e 's/^prome_//g')
     else
        CUSTOM_BUILD=
     fi
@@ -477,7 +477,7 @@ function breakfast()
     CUSTOM_DEVICES_ONLY="true"
     unset LUNCH_MENU_CHOICES
     add_lunch_combo full-eng
-    for f in `/bin/ls vendor/Anime/vendorsetup.sh 2> /dev/null`
+    for f in `/bin/ls vendor/prome/vendorsetup.sh 2> /dev/null`
         do
             echo "including $f"
             . $f
@@ -494,7 +494,7 @@ function breakfast()
             lunch $target
         else
             # This is probably just the omni model name
-            lunch anime_$target-userdebug
+            lunch prome_$target-userdebug
         fi
     fi
     return $?
