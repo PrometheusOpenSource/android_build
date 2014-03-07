@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # Copyright (C) 2012-2013, The CyanogenMod Project
-# Copyright (C) 2014, The AnimeROM Project
+# Copyright (C) 2014, The Prometheus Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -52,7 +52,7 @@ except:
     device = product
 
 if not depsonly:
-    print("Device %s not found. Attempting to retrieve device repository from AnimeROM Github (http://github.com/AnimeROM)." % device)
+    print("Device %s not found. Attempting to retrieve device repository from Prometheus Github (http://github.com/PrometheusOpenSource)." % device)
 
 repositories = []
 
@@ -72,7 +72,7 @@ def add_auth(githubreq):
 
 page = 1
 while not depsonly:
-    githubreq = urllib.request.Request("https://api.github.com/users/AnimeROM/repos?per_page=200&page=%d" % page)
+    githubreq = urllib.request.Request("https://api.github.com/users/PrometheusOpenSource/repos?per_page=200&page=%d" % page)
     add_auth(githubreq)
     result = json.loads(urllib.request.urlopen(githubreq).read().decode())
     if len(result) == 0:
@@ -171,12 +171,12 @@ def add_to_manifest(repositories, fallback_branch = None):
         repo_name = repository['repository']
         repo_target = repository['target_path']
         if exists_in_tree(lm, repo_name):
-            print('AnimeROM/%s already exists' % (repo_name))
+            print('Prometheus/%s already exists' % (repo_name))
             continue
 
-        print('Adding dependency: AnimeROM/%s -> %s' % (repo_name, repo_target))
+        print('Adding dependency: Prometheus/%s -> %s' % (repo_name, repo_target))
         project = ElementTree.Element("project", attrib = { "path": repo_target,
-            "remote": "github", "name": "AnimeROM/%s" % repo_name })
+            "remote": "github", "name": "Prometheus/%s" % repo_name })
 
         if 'branch' in repository:
             project.set('revision',repository['branch'])
@@ -198,7 +198,7 @@ def add_to_manifest(repositories, fallback_branch = None):
 
 def fetch_dependencies(repo_path, fallback_branch = None):
     print('Looking for dependencies')
-    dependencies_path = repo_path + '/anime.dependencies'
+    dependencies_path = repo_path + '/prometheus.dependencies'
     syncable_repos = []
 
     if os.path.exists(dependencies_path):
@@ -207,7 +207,7 @@ def fetch_dependencies(repo_path, fallback_branch = None):
         fetch_list = []
 
         for dependency in dependencies:
-            if not is_in_manifest("AnimeROM/%s" % dependency['repository']):
+            if not is_in_manifest("Prometheus/%s" % dependency['repository']):
                 fetch_list.append(dependency)
                 syncable_repos.append(dependency['target_path'])
 
@@ -287,4 +287,4 @@ else:
             print("Done")
             sys.exit()
 
-print("Repository for %s not found in the AnimeROM Github repository list. If this is in error, you may need to manually add it to your local_manifests/roomservice.xml." % device)
+print("Repository for %s not found in the Prometheus Github repository list. If this is in error, you may need to manually add it to your local_manifests/roomservice.xml." % device)
