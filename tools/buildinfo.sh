@@ -44,6 +44,6 @@ fi
 echo "ro.build.characteristics=$TARGET_AAPT_CHARACTERISTICS"
 
 # Omni properties
-echo "ro.prome.device=$ANIME_DEVICE"
+echo "ro.prome.device=$PROME_DEVICE"
 
 echo "# end build properties"
